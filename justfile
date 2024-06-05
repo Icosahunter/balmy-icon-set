@@ -13,15 +13,18 @@ export size='512':
 
 demo:
     #!/usr/bin/env bash
+    s=512
+    c=5
     echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' >> 'demo.svg'
-    echo '<svg width="512" height="512" version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg">' >> 'demo.svg'
+    echo "<svg width=\"${s}\" height=\"${s}\" version=\"1.1\" id=\"svg1\" xmlns=\"http://www.w3.org/2000/svg\">" >> 'demo.svg'
     i=0
     for f in `find -wholename './src/*.svg'`
     do
-        y=$((128*(i/4)))
-        x=$((128*(i%4)))
+        w=$((s/c))
+        y=$((w*(i/c)))
+        x=$((w*(i%c)))
         i=$((i+1))
-        echo "<image width=\"128\" height=\"128\" x=\"${x}\" y=\"${y}\" href=\"${f}\"/>" >> 'demo.svg'
+        echo "<image width=\"${w}\" height=\"${w}\" x=\"${x}\" y=\"${y}\" href=\"${f}\"/>" >> 'demo.svg'
     done
     echo '</svg>' >> 'demo.svg'
     inkscape --export-width=512 --export-type=png --export-area-drawing 'demo.svg'
