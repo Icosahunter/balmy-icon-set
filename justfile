@@ -8,7 +8,7 @@ export size='512':
     for f in `find -name '*.png'`
     do
         n=`basename $f`
-        mv $f 'export/'$n 
+        mv $f 'export/'$n
     done
 
 demo:
@@ -29,6 +29,9 @@ demo:
     echo '</svg>' >> 'demo.svg'
     inkscape --export-width=512 --export-type=png --export-area-drawing 'demo.svg'
     rm 'demo.svg'
+
+build:
+    python3 build_icon_theme.py
 
 clean:
     rm -r 'export'
