@@ -50,7 +50,6 @@ applications-system="categories/system.svg"
 applications-utilities="categories/utilities.svg"
 system-help="applications/help.svg"
 applications-all="categories/widgets.svg"
-favorites="categories/star.svg"
 
 [devices]
 kdeconnect="devices/phone.svg"
@@ -118,3 +117,4 @@ folder-trash="files/trash-folder.svg"
 folder-videos="files/videos-folder.svg"
 folder-favorites="files/favorites-folder.svg"
 document-open-recent="files/blank.svg"
+favorites="categories/star.svg"
