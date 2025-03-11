@@ -16,7 +16,8 @@ contexts = {
     'mimetypes': 'MimeTypes',
     'places': 'Places'
 }
-distdir = Path('./dist')
+srcdir = Path('src')
+distdir = Path('dist')
 themedir = distdir / 'balmy-icons'
 
 def create_theme_file():
@@ -52,15 +53,17 @@ def export_icons():
         for file, src in icon_mapping[section].items())
         for size in sizes)
         for section in sections))
+    files = list(itertools.chain.from_iterable(files))
 
     for section, size, file, src in tqdm(files):
-        export_icon(src, f'{themedir}/{section}/{size}/{file}', size)
+        export_icon(srcdir/src, f'{themedir}/{section}/{size}/{file}', size)
 
     print('Done.')
 
 def export_icon(src, dest, size):
+    dest = Path(dest)
     if size == 'scalable':
-        filename = (dest).with_suffix('.svg')
+        filename = dest.with_suffix('.svg')
         filename.parent.mkdir(exist_ok=True, parents=True)
         shutil.copy(src, filename)
     else:
@@ -76,7 +79,7 @@ def compress_theme():
     print('Done.')
 
 if __name__ == '__main__':
-    shutil.rmtree(distdir)
+    shutil.rmtree(distdir, ignore_errors=True)
     action = 'build-dist'
     if len(sys.argv) > 1:
         action = sys.argv[1]

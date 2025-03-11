@@ -3,7 +3,7 @@ accessories-calculator="applications/calculator.svg"
 accessories-character-map="applications/character-map.svg"
 accessories-dictionary="applications/dictionary.svg"
 accessories-text-editor="applications/text-editor.svg"
-help-browser="applications/help.svg"
+help="applications/help.svg"
 multimedia-volume-control="applications/audio.svg"
 preferences-desktop-accessibility="applications/accessibility.svg"
 preferences-desktop-font="applications/font.svg"
@@ -18,6 +18,8 @@ system-software-install="applications/store.svg"
 system-software-update="applications/store.svg"
 utilities-system-monitor="applications/system-monitor.svg"
 utilities-terminal="applications/terminal.svg"
+hwinfo="categories/system.svg"
+
 
 [categories]
 applications-accessories="categories/widgets.svg"
@@ -37,6 +39,7 @@ preferences-desktop="applications/desktop-settings.svg"
 preferences-desktop-peripherals="devices/keyboard.svg"
 preferences-system-network="applications/network.svg"
 system-help="applications/help.svg"
+applications-all="categories/widgets.svg"
 
 [devices]
 audio-card="devices/pci-card.svg"
@@ -77,6 +80,8 @@ x-office="files/office.svg"
 x-office-document="files/document.svg"
 x-office-presentation="files/presentation.svg"
 x-office-spreadsheet="files/spreadsheet.svg"
+x-office-drawing="files/vector.svg"
+application-x-archive="files/archive.svg"
 
 [places]
 folder="files/folder.svg"
