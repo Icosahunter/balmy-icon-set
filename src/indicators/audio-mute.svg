@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-   sodipodi:docname="audio-mute.svg"
+   sodipodi:docname="audio-quiet2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="2.0000001"
-     inkscape:cx="233.24999"
-     inkscape:cy="276.24999"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="118.08683"
+     inkscape:cy="375.4737"
      inkscape:window-width="1920"
      inkscape:window-height="1012"
      inkscape:window-x="0"
@@ -301,10 +301,10 @@
        sodipodi:nodetypes="ccccccc"
        inkscape:path-effect="#path-effect9"
        inkscape:original-d="M 42.73959,51.859146 20.7392,51.858791 V 82.766757 H 42.738886 L 70.277467,110.31696 69.666436,25.149708 Z"
-       transform="matrix(0.80223726,0,0,0.80223726,13.050331,13.412634)" />
+       transform="matrix(1.0825944,0,0,1.0825944,-8.0179095,-5.5943947)" />
     <path
-       style="font-variation-settings:'wght' 700;fill:#d9d9d9;stroke:#999999;stroke-width:7;stroke-linejoin:round;stroke-dashoffset:21.1654;paint-order:markers fill stroke"
-       d="M 27.703713,96.835473 87.289017,38.631185"
+       style="font-variation-settings:'wght' 700;fill:#d9d9d9;stroke:#999999;stroke-width:10;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:21.1654;paint-order:markers fill stroke"
+       d="M 10.460499,105.04541 86.855267,30.421259"
        id="path2"
        sodipodi:nodetypes="cc" />
   </g>

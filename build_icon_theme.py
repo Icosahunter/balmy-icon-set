@@ -3,6 +3,7 @@ import tomllib
 import subprocess
 import shlex
 import shutil
+import os
 from tqdm import tqdm
 import itertools
 import sys
@@ -16,8 +17,8 @@ contexts = {
     'mimetypes': 'MimeTypes',
     'places': 'Places'
 }
-srcdir = Path('src')
-distdir = Path('dist')
+srcdir = Path('./src')
+distdir = Path('./dist')
 themedir = distdir / 'balmy-icons'
 
 def create_theme_file():
@@ -74,23 +75,26 @@ def export_icon(src, dest, size):
 
 def compress_theme():
     print('Compressing theme...')
-    cmd = f"tar czf --directory={distdir} balmy-icons-theme.tar.gz {themedir}"
+    os.chdir(themedir.parent)
+    cmd = f"tar czf balmy-icons-theme.tar.gz {themedir.name}"
     subprocess.run(shlex.split(cmd))
     print('Done.')
 
 if __name__ == '__main__':
-    shutil.rmtree(distdir, ignore_errors=True)
     action = 'build-dist'
     if len(sys.argv) > 1:
         action = sys.argv[1]
 
     if action == 'build-index':
+        (themedir/'index.theme').unlink()
         create_theme_file()
     elif action == 'build-dist':
+        shutil.rmtree(distdir, ignore_errors=True)
         create_theme_file()
         export_icons()
         compress_theme()
     if action == 'build':
+        shutil.rmtree(distdir, ignore_errors=True)
         create_theme_file()
         export_icons()
     if action == 'compress':
