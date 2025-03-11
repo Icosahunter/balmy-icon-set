@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="logo.svg" width="150">
+    <img src="src/logo.svg" width="150">
     <h1> Balmy Icons </h1>
 </div>
 

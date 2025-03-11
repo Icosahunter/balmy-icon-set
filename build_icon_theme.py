@@ -8,6 +8,13 @@ import itertools
 
 sizes = [48, 64, 128, 256]
 sections = ['apps', 'categories', 'devices', 'mimetypes', 'places']
+contexts = {
+    'apps': 'Applications',
+    'categories': 'Categories',
+    'devices': 'Devices',
+    'mimetypes': 'MimeTypes',
+    'places': 'Places'
+}
 distdir = Path('./dist')
 themedir = distdir / 'balmy-icons'
 
