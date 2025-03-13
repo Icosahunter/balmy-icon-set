@@ -15,11 +15,15 @@ contexts = {
     'categories': 'Categories',
     'devices': 'Devices',
     'mimetypes': 'MimeTypes',
-    'places': 'Places'
+    'places': 'Places',
+    'actions': 'Actions',
+    'status': 'Status'
 }
 srcdir = Path('./src')
 distdir = Path('./dist')
 themedir = distdir / 'balmy-icons'
+
+used_srcs = {}
 
 def verify_mappings():
     print('Verifying filename mappings...')
@@ -77,19 +81,30 @@ def export_icons():
     for section, size, file, src in tqdm(files):
         export_icon(srcdir/src, f'{themedir}/{section}/{size}/{file}', size)
 
+    used_srcs.clear()
+
     print('Done.')
 
 def export_icon(src, dest, size):
     dest = Path(dest)
-    if size == 'scalable':
-        filename = dest.with_suffix('.svg')
+    if src in used_srcs and dest.parent == used_srcs[src].parent:
+        if size == 'scalable':
+            filename = dest.with_suffix('.svg')
+        else:
+            filename = dest.with_suffix('.png')
         filename.parent.mkdir(exist_ok=True, parents=True)
-        shutil.copy(src, filename)
+        filename.symlink_to(used_srcs[src].name)
     else:
-        filename = dest.with_suffix('.png')
-        filename.parent.mkdir(exist_ok=True, parents=True)
-        cmd = f"inkscape --export-width={size} --export-filename={filename} --export-area-drawing {src}"
-        subprocess.run(shlex.split(cmd))
+        if size == 'scalable':
+            filename = dest.with_suffix('.svg')
+            filename.parent.mkdir(exist_ok=True, parents=True)
+            shutil.copy(src, filename)
+        else:
+            filename = dest.with_suffix('.png')
+            filename.parent.mkdir(exist_ok=True, parents=True)
+            cmd = f"inkscape --export-width={size} --export-filename={filename} --export-area-drawing {src}"
+            subprocess.run(shlex.split(cmd))
+        used_srcs[src] = filename
 
 def compress_theme():
     print('Compressing theme...')
