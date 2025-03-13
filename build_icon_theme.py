@@ -9,7 +9,6 @@ import itertools
 import sys
 
 sizes = [48, 64, 128, 256, 'scalable']
-sections = ['apps', 'categories', 'devices', 'mimetypes', 'places']
 contexts = {
     'apps': 'Applications',
     'categories': 'Categories',
@@ -46,17 +45,17 @@ def verify_mappings():
 def create_theme_file():
     print('Generating index.theme file...')
 
-    subdirs = list(itertools.chain.from_iterable([[f'{section}/{size}' for size in sizes] for section in sections]))
-    subdirs.extend([f'{section}/scalable' for section in sections])
+    subdirs = list(itertools.chain.from_iterable([[f'{section}/{size}' for size in sizes] for section in contexts.keys()]))
+    subdirs.extend([f'{section}/scalable' for section in contexts.keys()])
     subdirs = ','.join(subdirs)
 
     theme_file_text = f"[Icon Theme]\nName=Balmy Icons\nComment=Simple CC0 pastel icons\nDirectories={subdirs}\n\n"
 
-    for section in sections:
+    for section in contexts.keys():
         for size in sizes:
             theme_file_text += f"[{section}/{size}]\nSize={size}\nContext={contexts[section]}\nType=Fixed\n\n"
 
-    for section in sections:
+    for section in contexts.keys():
         theme_file_text += f"[{section}/scalable]\nSize=512\nContext={contexts[section]}\nType=Scalable\n\n"
 
     themedir.mkdir(exist_ok=True, parents=True)
@@ -75,7 +74,7 @@ def export_icons():
     files = itertools.chain.from_iterable(((((section, size, file, src)
         for file, src in icon_mapping[section].items())
         for size in sizes)
-        for section in sections))
+        for section in contexts.keys()))
     files = list(itertools.chain.from_iterable(files))
 
     for section, size, file, src in tqdm(files):
