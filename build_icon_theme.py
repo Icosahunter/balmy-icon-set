@@ -21,6 +21,24 @@ srcdir = Path('./src')
 distdir = Path('./dist')
 themedir = distdir / 'balmy-icons'
 
+def verify_mappings():
+    print('Verifying filename mappings...')
+    missing_filenames = []
+    icon_mapping = None
+    with open('fd-name-mapping.toml', 'rb') as f:
+        icon_mapping = tomllib.load(f)
+    for section in icon_mapping.values():
+        for filename in section.values():
+            if not Path(srcdir / filename).exists():
+                missing_filenames.append(filename)
+    if missing_filenames:
+        print('ERROR: Some files in the file mappings config could not be found:')
+        for file in missing_filenames:
+            print(f'\t - {file}')
+        return False
+    print('Done.')
+    return True
+
 def create_theme_file():
     print('Generating index.theme file...')
 
@@ -85,15 +103,15 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         action = sys.argv[1]
 
-    if action == 'build-index':
+    if action == 'build-index' and verify_mappings():
         (themedir/'index.theme').unlink()
         create_theme_file()
-    elif action == 'build-dist':
+    elif action == 'build-dist' and verify_mappings():
         shutil.rmtree(distdir, ignore_errors=True)
         create_theme_file()
         export_icons()
         compress_theme()
-    if action == 'build':
+    if action == 'build' and verify_mappings():
         shutil.rmtree(distdir, ignore_errors=True)
         create_theme_file()
         export_icons()
