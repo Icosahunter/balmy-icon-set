@@ -1,26 +1,9 @@
-new icons to make:
-utilities-log-viewer
-utilities-file-archiver
-preferences-system-bluetooth
-preferences-desktop-activities
-preferences-desktop-color
-preferences-desktop-cursors
-preferences-desktop-default-applications
-preferences-desktop-effects
-preferences-desktop-gestures
-preferences-desktop-icons
-
-
-links to make:
-system-software-install
-system-software-update
-system-file-manager
-system-help
-systemsettings (?)
-utilities-system-monitor
-knsapshot
-spectacle
-kwrite
-internet-web-browser
-preferences-desktop-display
-preferences-desktop-keyboard
+configure
+games-config
+view
+view-list
+view-list-icons
+view-list-details
+view-list-tree
+view-right-new
+view-left-new
