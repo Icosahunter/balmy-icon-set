@@ -204,6 +204,9 @@ photo="applications/wallpaper.svg"
 photos="applications/wallpaper.svg"
 tab-new="actions/new-right.svg"
 window-new="applications/window.svg"
+tag="actions/tag.svg"
+trash="places/trash.svg"
+albumfolder-user-trash="places/trash.svg"
 
 [status]
 microphone-sensitivity="devices/microphone.svg"
