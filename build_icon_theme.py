@@ -17,7 +17,8 @@ contexts = {
     'mimetypes': 'MimeTypes',
     'places': 'Places',
     'actions': 'Actions',
-    'status': 'Status'
+    'status': 'Status',
+    'emotes': 'Emotes'
 }
 srcdir = Path('./src')
 distdir = Path('./dist')

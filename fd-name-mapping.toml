@@ -52,7 +52,7 @@ applications-science="categories/science.svg"
 applications-system="categories/system.svg"
 applications-utilities="categories/utilities.svg"
 system-help="applications/help.svg"
-applications-all="categories/widgets.svg"
+applications-all="categories/all.svg"
 
 [devices]
 kdeconnect="devices/phone.svg"
@@ -232,6 +232,12 @@ tools-wizard="actions/magic.svg"
 quickwizard="actions/magic.svg"
 script-new="applications/terminal.svg"
 dialog-scripts="applications/terminal.svg"
+lock="actions/lock.svg"
+unlock="actions/unlock.svg"
+swap-panels="actions/pane-swap.svg"
+speedometer="actions/speedometer.svg"
+view-calendar="applications/calendar.svg"
+system-run="actions/run.svg"
 
 [status]
 microphone-sensitivity="devices/microphone.svg"
@@ -262,3 +268,7 @@ dialog-information="actions/info.svg"
 showinfo="actions/info.svg"
 data-information="actions/info.svg"
 disk="devices/harddrive.svg"
+
+[emotes]
+face-smile="emoticons/smile.svg"
+face-sad="emoticons/frown.svg"
